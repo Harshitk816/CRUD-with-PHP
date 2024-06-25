@@ -1,0 +1,29 @@
+<div class="container">
+  <button class="add-btn">+</button>
+    <div class="input-div">
+      
+    </div>
+    
+  </div>
+  
+  <script>
+    const container = document.querySelector('.container');
+    const addBtn = document.querySelector('.add-btn');
+  
+    addBtn.addEventListener('click', () => {
+      const newInputDiv = document.createElement('div');
+      newInputDiv.className = 'input-div';
+      newInputDiv.innerHTML = `
+        <input type="text" />
+        <button name="hobbies[]" class="remove-btn">Remove</button>
+      `;
+      container.appendChild(newInputDiv);
+    });
+  
+    container.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove-btn')) {
+        const inputDiv = e.target.parentNode;
+        inputDiv.remove();
+      }
+    });
+  </script>
